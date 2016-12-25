@@ -23,13 +23,12 @@ app.get('/', function(request, response) {
 function sendMessage(urlObject){
 
     slack = new Slack();
-    //dynamic webhook
     slack.setWebhook(urlObject.response_url);
 
     slack.webhook({
      channel: urlObject.channel_name,
       username: "slash_command",
-      text: "some text here"
+      text: "Hello World"                    // EDIT THIS LINE
     }, function(err, response) {
         if (err){
             console.log(err)
