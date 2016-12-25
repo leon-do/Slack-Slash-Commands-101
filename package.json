@@ -1,0 +1,16 @@
+{
+  "name": "outboundhook",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+      "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "slack-node": "^0.1.8"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
