@@ -27,7 +27,7 @@ function sendMessage(urlObject){
 
     slack.webhook({
      channel: urlObject.channel_name,
-      text: urlObject                    // EDIT THIS LINE
+      text: "hellooooo"                    // EDIT THIS LINE
     }, function(err, response) {
         if (err){
             console.log(err)
