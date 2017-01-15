@@ -25,11 +25,11 @@ function sendMessage(urlObject){
     slack = new Slack();
     slack.setWebhook(urlObject.response_url);
 
-    var yourCommand = urlObject.text;
+    var userCommand = urlObject.text;
 
     slack.webhook({
      channel: urlObject.channel_name,
-      text: "hello you typed: " + yourCommand                   // EDIT THIS LINE
+      text: "hello you typed: " + userCommand                   // EDIT THIS LINE
     }, function(err, response) {
         if (err){
             console.log(err)
