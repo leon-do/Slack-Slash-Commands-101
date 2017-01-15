@@ -12,14 +12,16 @@
 
 4. choose a command: /foobar 
 
-5. paste URL from step 3.
+5. choose method: GET
 
-6. save integration
+6. paste URL from step 3.
 
-7. open slack and type: /foobar 
+7. save integration
 
-8. you should get a message that says "Hello World"
+8. open slack and type: /foobar 
 
-9. Edit app.js to customize your message
+9. you should get a message that says "Hello World"
 
-10. The end.
+10. Edit app.js to customize your message
+
+11. The end.
