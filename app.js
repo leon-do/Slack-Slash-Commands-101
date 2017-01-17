@@ -27,11 +27,9 @@ function sendMessage(urlObject){
 
     var userCommand = urlObject.text;
 
-    var calculatedCommand = Number(userCommand) + 22;
-
     slack.webhook({
      channel: urlObject.channel_name,
-      text: "Addingg + 22 is: " + calculatedCommand;                  // EDIT THIS LINE
+      text: "Addingg + 22 is: " + Number(userCommand) + 22;                // EDIT THIS LINE
     }, function(err, response) {
         if (err){
             console.log(err)
