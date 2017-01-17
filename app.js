@@ -29,7 +29,7 @@ function sendMessage(urlObject){
 
     slack.webhook({
      channel: urlObject.channel_name,
-     text: "hello you: " + Number(userCommand) + 2;                   // EDIT THIS LINE
+     text: "hello you: " + Number(userCommand) + 2                   // EDIT THIS LINE
     }, function(err, response) {
         if (err){
             console.log(err)
