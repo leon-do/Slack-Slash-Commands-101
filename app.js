@@ -33,12 +33,12 @@ function getUserCommand(urlObject){
 
         slack.webhook({
          channel: urlObject.channel_name,
-          text: "hello you typed: " + response                   // the response back to slack
+          text: "hello you typed: " + response[0]                   // the response back to slack
         }, function(err, response) {
             if (err){
                 console.log(err)
             }
-            
+
         })//webhook
 
     })//request
