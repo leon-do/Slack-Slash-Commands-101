@@ -25,7 +25,7 @@ function sendMessage(urlObject){
     slack = new Slack();
     slack.setWebhook(urlObject.response_url);
 
-    var userCommand = urlObject.text;                           //   /foobar catfish    'catfish' is stored in var userCommand
+    var userCommand = urlObject.text;                           //   /mySlashCommand catfish    'catfish' is stored in var userCommand
 
     slack.webhook({
      channel: urlObject.channel_name,
