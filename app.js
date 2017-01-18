@@ -2,6 +2,7 @@ var Slack = require('slack-node');
 var express = require('express');
 var url = require('url');
 var app = express();
+var request = require('request');
 
 
 ////////////// THE SETUP ///////////////////////////////////////////
@@ -18,24 +19,33 @@ app.get('/', function(request, response) {
 }); //app.get
 
 
-/////////////// THE SEND MESSAGE //////////////////////////////////////////
+/////////////// THE PARSE INFO //////////////////////////////////////////
 
-function sendMessage(urlObject){
+function parseInfo(urlObject){
 
     slack = new Slack();
     slack.setWebhook(urlObject.response_url);
-    
+
     //   /mySlashCommand catfish    'catfish' is stored in var userCommand
     var userCommand = urlObject.text;
 
-    slack.webhook({
-     channel: urlObject.channel_name,
-      text: "hello you typed: " + userCommand                   // the response back to slack
-    }, function(err, response) {
-        if (err){
-            console.log(err)
-        }
-    });
+    apiCall(userCommand);
 }
 
-/////////////////////////////////////////////////////////
+
+////////////// THE API CALL AND SEND TO SLACK ///////////////////////////////////////////
+
+function apiCall(userCommand){
+
+    request('http://rhymebrain.com/talk?function=getRhymes&word=' + userCommand, function (error, response, body) {
+        slack.webhook({
+         channel: urlObject.channel_name,
+          text: "hello you typed: " + body                   // the response back to slack
+        }, function(err, response) {
+            if (err){
+                console.log(err)
+            }
+        });
+
+    })
+}
