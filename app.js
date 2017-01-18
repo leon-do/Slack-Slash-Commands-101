@@ -33,14 +33,15 @@ function parseInfo(urlObject){
 }
 
 
-////////////// THE API CALL AND SEND TO SLACK ///////////////////////////////////////////
+////////////// API CALL AND SEND BACK TO SLACK ///////////////////////////////////////////
 
 function apiCall(userCommand){
 
     request('http://rhymebrain.com/talk?function=getRhymes&word=' + userCommand, function (error, response, body) {
+
         slack.webhook({
          channel: urlObject.channel_name,
-          text: "hello you typed: " + body                   // the response back to slack
+          text: "hello you typed: " + response[0]                   // the response back to slack
         }, function(err, response) {
             if (err){
                 console.log(err)
