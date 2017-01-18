@@ -14,14 +14,14 @@ app.listen(app.get('port'))
 app.get('/', function(request, response) {
 
     var urlObject = url.parse(request.url,true).query
-    sendMessage(urlObject);
+    getUserCommand(urlObject);
 
 }); //app.get
 
 
 /////////////// THE PARSE INFO //////////////////////////////////////////
 
-function parseInfo(urlObject){
+function getUserCommand(urlObject){
 
     slack = new Slack();
     slack.setWebhook(urlObject.response_url);
