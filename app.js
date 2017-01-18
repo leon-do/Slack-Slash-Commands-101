@@ -29,14 +29,6 @@ function getUserCommand(urlObject){
     //   /mySlashCommand catfish    'catfish' is stored in var userCommand
     var userCommand = urlObject.text;
 
-    apiCall(userCommand);
-}
-
-
-////////////// API CALL AND SEND BACK TO SLACK ///////////////////////////////////////////
-
-function apiCall(userCommand){
-
     request('http://rhymebrain.com/talk?function=getRhymes&word=' + userCommand, function (error, response, body) {
 
         slack.webhook({
@@ -46,7 +38,9 @@ function apiCall(userCommand){
             if (err){
                 console.log(err)
             }
-        });
+            
+        })//webhook
 
-    })
-}
+    })//request
+
+} //getUserCommand
