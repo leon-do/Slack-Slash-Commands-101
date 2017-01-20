@@ -18,9 +18,9 @@
 
 7. save integration
 
-8. open slack and type: /foobar 
+8. open slack and type: /foobar catfish
 
-9. you should get a message that says "Hello World"
+9. you should get a message that says "hello you typed: catfish"
 
 10. Edit app.js to customize your message
 
