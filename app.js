@@ -13,6 +13,7 @@ app.listen(app.get('port'))
 app.get('/', function(request, response) {
 
     var urlObject = url.parse(request.url,true).query
+    console.log(urlObject)
     sendMessage(urlObject);
 
 }); //app.get
@@ -30,7 +31,7 @@ function sendMessage(urlObject){
 
     slack.webhook({
      channel: urlObject.channel_name,
-      text: "hello you typed: " + userCommand                   // the response back to slack
+      text: "hello you typed: " + urlObject                   // the response back to slack
     }, function(err, response) {
         if (err){
             console.log(err)
