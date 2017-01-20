@@ -1,4 +1,4 @@
-var Slack = require('slack-node');
+    var Slack = require('slack-node');
 var express = require('express');
 var url = require('url');
 var app = express();
@@ -27,11 +27,11 @@ function sendMessage(urlObject){
     slack.setWebhook(urlObject.response_url);
 
     //   /mySlashCommand catfish    'catfish' is stored in var userCommand
-    var userCommand = urlObject.text;
+    var userText = urlObject.text;
 
     slack.webhook({
      channel: urlObject.channel_name,
-      text: JSON.stringify(urlObject)                   // the response back to slack
+      text: "hello you typed: " + userText                  // the response back to slack
     }, function(err, response) {
         if (err){
             console.log(err)
